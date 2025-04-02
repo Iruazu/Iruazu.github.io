@@ -161,7 +161,7 @@ body {
   
   /* ヒーローイメージ */
   .hero-image {
-    background-image: url("img/castle1.jpg"); /* ヒーローイメージのURL */
+    background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
     background-size: cover;
     background-position: center;
     color: #fff;
