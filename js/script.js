@@ -16,6 +16,38 @@ accordionHeaders.forEach(header => {
   });
 });
 
+// モーダルウィンドウの動作
+const workImages = document.querySelectorAll('#works .swiper-slide img');
+const modals = document.querySelectorAll('.modal');
+const closeButtons = document.querySelectorAll('.close-button');
+
+workImages.forEach(image => {
+  image.addEventListener('click', () => {
+    const modalId = image.dataset.modal;
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  });
+});
+
+closeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+window.addEventListener('click', (event) => {
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
 // カルーセルの初期化 (Swiper)
 const swiper = new Swiper('.swiper', {
   loop: true, // 無限ループ
