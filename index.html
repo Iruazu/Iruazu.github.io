@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iruazu-portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="site-title"><a href="#">iruazu-portfolio</a></h1>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-image fade-in" id="hero">
+    <div class="hero-content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>A showcase of my creative work.</p>
+      <a href="#works" class="button">View Works</a>
+    </div>
+  </section>
+
+  <section id="about" class="section fade-in">
+    <div class="container">
+      <h2>About</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header">目標</h3>
+          <div class="accordion-content">
+            <p>短期目標</p>
+              <p>・クラウドソーシングでWeb開発またはCAD関連の簡単な案件を3件以上獲得し、実績を作る。</p>
+              
+              <p>・Reactの基礎を習得し、ポートフォリオサイトの改修を行う。</p>
+              
+              <p>・ブログに3記事以上投稿する。</p>
+              
+              <p>・ポートフォリオサイトの「About」セクションを英語で記述する。</p>
+              
+              <p>・Upworkに登録し、Web開発またはCAD関連の簡単な英語案件に1件応募してみる。</p>
+              
+              <p>・海外のMinecraft建築コミュニティに参加し、作品を英語で紹介する。</p>
+              
+              <p>中期目標</p>
+              <p>・AIを活用したタスク管理ツールのプロトタイプを開発し、GitHubで公開する。</p>
+              
+              <p>・クラウドソーシングで中程度の難易度のWeb開発またはCAD案件に挑戦し、収入を得る。</p>
+              
+              <p>・研究室活動で知能機械ロボティクスの具体的な研究テーマに貢献する。</p>
+              
+              <p>・海外クラウドソーシングプラットフォームで英語のWeb開発またはCAD案件を3件以上成功させる。</p>
+              
+              <p>・技術的な内容について、英語で簡単なブログ記事を3つ以上書く。</p>
+              
+              <p>・海外のエンジニアが主催するオンラインワークショップやセミナーに積極的に参加する。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">プロフィール</h3>
+          <div class="accordion-content">
+            <p>工学部の大学2年生として、知能機械ロボティクスの奥深さに魅了されているIruazuです。「学生のうちに多くの経験を積みたい」という強い思いから、様々な分野に積極的に挑戦しています。</p>
+                <p>Web開発やアプリ開発はその一環で、手を動かしながらプログラミングの基礎を習得しています。また、AIツールの学習にも力を入れ、日々の業務効率化や新たな可能性の探求に役立てています。</p>
+                <p>研究室では、CADやInventorの練習を通して、設計・モデリングのスキルを着実に向上させています。趣味のMinecraft建築では、自由な発想で独創的な作品を生み出すことで、デザインセンスを磨いています。</p>
+                <p>常に新しい知識やスキルを吸収し、得意なこと、好きなことを活かしながら、効率的に成果を出せるプロフェッショナルを目指してます！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="section fade-in">
+    <div class="container">
+      <h2>Works</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="css\img\minecraft-castle-by-Iruazu.jpg" alt="作品1" data-modal="modal1">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://placehold.jp/300x200.png?text=作品2" alt="作品2" data-modal="modal2">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://placehold.jp/300x200.png?text=作品3" alt="作品3" data-modal="modal3">
+          </div>
+          </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <img src="minecraft-castle-by-Iruazu.jpg" alt="作品1の詳細">
+          <p>作品1の詳細な説明を記述します。使用した技術や制作の意図などを具体的に記述しましょう。</p>
+          <a href="#" target="_blank">Live Demo</a> / <a href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <img src="https://placehold.jp/600x400.png?text=作品2詳細" alt="作品2の詳細">
+          <p>作品2の詳細な説明を記述します。</p>
+          <a href="#" target="_blank">Live Demo</a> / <a href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <img src="https://placehold.jp/600x400.png?text=作品3詳細" alt="作品3の詳細">
+          <p>作品3の詳細な説明を記述します。</p>
+          <a href="#" target="_blank">Live Demo</a> / <a href="#" target="_blank">GitHub</a>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  <section id="blog" class="section">
+    <div class="container">
+      <h2>Blog</h2>
+      <p>ブログでは技術的な情報や日々の学びを記録する予定です。notionで管理楽にしたい</p>
+      <ul class="blog-links">
+        <li></li>
+        <li></li>
+        </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="https://twitter.com/Irumu_mc" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://instagram.com/irua.zu" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://github.com/Iruazu" target="_blank"><i class="fab fa-github"></i></a></li>
+      </ul>
+        </ul>
+      <p>&copy; 2025 iruazu-portfolio</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
