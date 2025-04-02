@@ -71,6 +71,10 @@ const swiper = new Swiper('.swiper', {
       spaceBetween: 50,
     },
   },
+  autoplay: { // 自動再生の設定
+    delay: 3000, // 各スライドの表示時間 (ミリ秒)
+    disableOnInteraction: false, // ユーザー操作後に自動再生を停止しない
+  },
 });
 
 // ハンバーガーメニューの動作
