@@ -110,3 +110,18 @@ navLinks.forEach(link => {
     }
   });
 });
+
+//スクロールナビゲーション
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  const heroSection = document.getElementById('hero');
+  const heroHeight = heroSection.offsetHeight; // ヒーローイメージの高さを取得
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > heroHeight) {
+      header.classList.remove('header-transparent');
+    } else {
+      header.classList.add('header-transparent');
+    }
+  });
+});

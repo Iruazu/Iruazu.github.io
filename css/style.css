@@ -1,408 +1,425 @@
 /* 全体的なスタイル */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-   }
-  
-  body.loaded {
-    opacity: 1;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/*フェードイ*/
+.fade-in {
+  opacity: 0; /* 初期状態を透明にする */
+  transition: opacity 0.8s ease-in-out; /* 透明度変化のアニメーション */
+}
+
+.fade-in.loaded {
+  opacity: 1; /* JavaScriptで 'loaded' クラスが付与されたら表示 */
+}
+
+/* ヘッダー */
+header {
+  background-color: #fff; /* スクロール後の背景色 (初期値として設定) */
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* スクロール後の影 (初期値として設定) */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* スムーズな変化のためトランジションを追加 */
+}
+
+/* ヘッダーの初期状態 (透明) */
+header.header-transparent {
+  background-color: transparent; /* 背景を透明に */
+  box-shadow: none; /* スクロールするまで影を非表示 */
+}
+
+header.header-transparent .site-title a {
+  color: #fff; /* サイトタイトルを白文字に */
+}
+
+header.header-transparent .global-nav a {
+  color: #fff; /* ナビゲーションリンクを白文字に */
+}
+
+header.header-transparent .hamburger-menu span {
+  background-color: #fff; /* ハンバーガーメニューを白に変更 */
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* ナビゲーション */
+.global-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.global-nav li {
+  margin-left: 20px;
+}
+
+.global-nav a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.global-nav a:hover {
+  color: #007bff;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-menu {
+  display: none;
+  width: 30px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* レスポンシブ対応 (768px以下) */
+@media (max-width: 768px) {
+  .global-nav {
+    display: none;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  .hamburger-menu {
+    display: flex;
   }
-  
-  .section {
-    padding: 80px 0;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* ヘッダー */
-  header {
+
+  .global-nav.open {
+    display: block;
+    position: absolute;
+    top: 60px; /* ヘッダーの高さに合わせて調整 */
+    left: 0;
+    width: 100%;
     background-color: #fff;
+    text-align: center;
     padding: 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+    z-index: 99; /* ヘッダーより手前に表示 */
   }
-  
-  header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .site-title a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  /*フェードイ*/
-  .fade-in {
-    opacity: 0; /* 初期状態を透明にする */
-    transition: opacity 0.8s ease-in-out; /* 透明度変化のアニメーション */
-  }
-  
-  .fade-in.loaded {
-    opacity: 1; /* JavaScriptで 'loaded' クラスが付与されたら表示 */
-  }
-  
-  /* ナビゲーション */
-  .global-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
-  
-  .global-nav li {
-    margin-left: 20px;
-  }
-  
-  .global-nav a {
-    text-decoration: none;
-    color: #555;
-    transition: color 0.3s ease;
-  }
-  
-  .global-nav a:hover {
-    color: #007bff;
-  }
-  
-  /* ハンバーガーメニュー */
-  .hamburger-menu {
-    display: none;
-    width: 30px;
-    height: 20px;
+
+  .global-nav.open ul {
     flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  
-  .hamburger-menu span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #333;
-    transition: all 0.3s ease;
-  }
-  
-  .hamburger-menu.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-  
-  .hamburger-menu.open span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger-menu.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-  
-  /* レスポンシブ対応 (768px以下) */
-  @media (max-width: 768px) {
-    .global-nav {
-      display: none;
-    }
-    .hamburger-menu {
-      display: flex;
-    }
-  
-    .global-nav.open {
-      display: block;
-      position: absolute;
-      top: 60px; /* ヘッダーの高さに合わせて調整 */
-      left: 0;
-      width: 100%;
-      background-color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 99; /* ヘッダーより手前に表示 */
-    }
-  
-    .global-nav.open ul {
-      flex-direction: column;
-    }
-  
-    .global-nav.open li {
-      margin: 10px 0;
-    }
-  }
-  
-  /* ヒーローイメージ */
-  .hero-image {
-    background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 200px 0;
-  }
-  
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  /* Aboutセクション (アコーディオンメニュー) */
-  .accordion-item {
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .accordion-header {
-    background-color: #eee;
-    padding: 15px;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .accordion-header::after {
-    content: '+';
-    font-size: 1.5rem;
-  }
-  
-  .accordion-item.open .accordion-header::after {
-    content: '-';
-  }
-  
-  .accordion-content {
-    padding: 15px;
-    background-color: #fff;
-    display: none; /* 初期状態では非表示 */
-  }
-  
-  .accordion-item.open .accordion-content {
-    display: block;
-  }
-  
-  /* Worksセクション (カルーセル) */
-  #works .container {
-    padding-bottom: 80px; /* フッターとの間隔 */
-  }
-  
-  .swiper {
-    width: 100%;
-    height: auto;
-    margin-bottom: 30px;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #333;
-  }
-  
-  .swiper-pagination-bullet-active {
-    background-color: #007bff;
-  }
-  
-  /* Worksセクション (モーダルウィンドウ) */
-  .modal {
-    display: none; /* 初期状態では非表示 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    overflow: auto;
-  }
-  
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    text-align: center;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .modal-content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .modal-content p {
-    margin-bottom: 20px;
-  }
-  
-  .modal-content a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .modal-content a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Blogセクション */
-  .blog-links {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-  
-  .blog-links li {
-    margin-bottom: 15px;
-  }
-  
-  .blog-links a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .blog-links a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
-  /* フッター */
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px 0;
-    text-align: center;
-  }
-  
-  .social-links {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .social-links li {
-    margin: 0 15px;
-  }
-  
-  .social-links a {
-    display: block;
-  }
-  
-  .social-links img {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  
-  .social-links img:hover {
-    opacity: 1;
   }
 
-  footer .social-links li a i {
-    font-size: 2rem; /* アイコンのサイズ */
-    color: #fff; /* アイコンの初期色 */
-    margin: 0 10px;
-    transition: color 0.3s ease;
+  .global-nav.open li {
+    margin: 10px 0;
   }
-  
-  footer .social-links li a i:hover {
-    color: #ccc; /* ホバー時のアイコンの色 */
-  }
-  
-  footer p {
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
-  
-  /* パララックス効果 (ヒーローイメージに適用) */
-  .hero-image {
-    background-attachment: fixed; /* パララックスの肝 */
-  }
-  
-  /* スムーススクロール */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* セクション間の余白調整 */
-  .section:last-child {
-    margin-bottom: 0;
-  }
+}
 
-  
+/* ヒーローイメージ */
+.hero-image {
+  background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 300px 0;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Aboutセクション (アコーディオンメニュー) */
+.accordion-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background-color: #eee;
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 1.5rem;
+}
+
+.accordion-item.open .accordion-header::after {
+  content: '-';
+}
+
+.accordion-content {
+  padding: 15px;
+  background-color: #fff;
+  display: none; /* 初期状態では非表示 */
+}
+
+.accordion-item.open .accordion-content {
+  display: block;
+}
+
+/* Worksセクション (カルーセル) */
+#works .container {
+  padding-bottom: 80px; /* フッターとの間隔 */
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #333;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #007bff;
+}
+
+/* Worksセクション (モーダルウィンドウ) */
+.modal {
+  display: none; /* 初期状態では非表示 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+/* Blogセクション */
+.blog-links {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.blog-links li {
+  margin-bottom: 15px;
+}
+
+.blog-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.blog-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* フッター */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li {
+  margin: 0 15px;
+}
+
+.social-links a {
+  display: block;
+}
+
+.social-links img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+  opacity: 1;
+}
+
+footer .social-links li a i {
+  font-size: 2rem; /* アイコンのサイズ */
+  color: #fff; /* アイコンの初期色 */
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer .social-links li a i:hover {
+  color: #ccc; /* ホバー時のアイコンの色 */
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* パララックス効果 (ヒーローイメージに適用) */
+.hero-image {
+  background-attachment: fixed; /* パララックスの肝 */
+}
+
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* セクション間の余白調整 */
+.section:last-child {
+  margin-bottom: 0;
+}
