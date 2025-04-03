@@ -251,6 +251,26 @@ header .container {
   color: #fff;
   text-align: center;
   padding: 300px 0;
+  /* パララックス効果 */
+  background-attachment: fixed;
+}
+
+/* iPhone SEなど小さい画面用のヒーローイメージ調整 */
+@media (max-width: 375px) {
+  .hero-image {
+    background-size: cover;
+    background-position: center;
+    padding: 200px 0; /* より小さな画面では垂直パディングを減らす */
+    background-attachment: scroll; /* 小さなデバイスではfixedを無効化 */
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem; /* より小さなデバイスでは見出しのサイズを小さく */
+  }
+  
+  .hero-content p {
+    font-size: 1rem; /* より小さなデバイスでは段落のサイズを小さく */
+  }
 }
 
 .hero-content {
@@ -412,15 +432,9 @@ header .container {
     flex-direction: column; /* 縦並びにする */
   }
 
-  /* レスポンシブ対応 */
-@media (max-width: 768px) {
-  /* ... その他のレスポンシブな CSS ... */
-
   #works {
     pointer-events: auto; /* スマートフォンサイズではイベントを受け付ける */
   }
-}
-
 
   .works-list {
     flex-basis: auto;
@@ -612,6 +626,14 @@ footer p {
 /* パララックス効果 (ヒーローイメージに適用) */
 .hero-image {
   background-attachment: fixed; /* パララックスの肝 */
+}
+
+/* iOS/Safari向けのパララックス修正 */
+@supports (-webkit-touch-callout: none) {
+  /* iOS用 */
+  .hero-image {
+    background-attachment: scroll; /* iOSではfixedが正しく動作しないのでscrollに */
+  }
 }
 
 /* スムーススクロール */
