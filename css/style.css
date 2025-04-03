@@ -329,7 +329,7 @@ header .container {
 /* Worksセクション (デスクトップ版) */
 #works {
   padding: 80px 0;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 #works .container {
