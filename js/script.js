@@ -16,67 +16,6 @@ accordionHeaders.forEach(header => {
   });
 });
 
-// モーダルウィンドウの動作
-const workImages = document.querySelectorAll('#works .swiper-slide img');
-const modals = document.querySelectorAll('.modal');
-const closeButtons = document.querySelectorAll('.close-button');
-
-workImages.forEach(image => {
-  image.addEventListener('click', () => {
-    const modalId = image.dataset.modal;
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'block';
-    }
-  });
-});
-
-closeButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal');
-    if (modal) {
-      modal.style.display = 'none';
-    }
-  });
-});
-
-window.addEventListener('click', (event) => {
-  modals.forEach(modal => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-});
-
-// カルーセルの初期化 (Swiper)
-const swiper = new Swiper('.swiper', {
-  loop: true, // 無限ループ
-  slidesPerView: 1, // 一度に表示するスライド数
-  spaceBetween: 30, // スライド間の余白
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true, // ページネーションをクリック可能にする
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 40,
-    },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 50,
-    },
-  },
-  autoplay: { // 自動再生の設定
-    delay: 3000, // 各スライドの表示時間 (ミリ秒)
-    disableOnInteraction: false, // ユーザー操作後に自動再生を停止しない
-  },
-});
-
 // ハンバーガーメニューの動作
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const globalNav = document.querySelector('.global-nav');
@@ -156,6 +95,86 @@ document.addEventListener('DOMContentLoaded', function() {
       header.classList.remove('header-transparent');
     } else if (heroSection) {
       header.classList.add('header-transparent');
+    }
+  });
+
+  const worksSection = document.getElementById('works');
+  const body = document.body;
+  const originalOverflowY = window.getComputedStyle(body).overflowY;
+
+  if (worksSection) {
+    worksSection.addEventListener('mouseenter', () => {
+      body.style.overflowY = 'auto';
+    });
+
+    worksSection.addEventListener('mouseleave', () => {
+      body.style.overflowY = originalOverflowY;
+    });
+  }
+});
+
+const worksListItems = document.querySelectorAll('.works-list li');
+const swiperContainers = document.querySelectorAll('.swiper-container');
+let currentSwiper;
+
+// 最初のカルーセルを初期化
+if (swiperContainers.length > 0) {
+  currentSwiper = new Swiper(swiperContainers[0].querySelector('.swiper'), {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  });
+}
+
+worksListItems.forEach(item => {
+  item.addEventListener('click', function() {
+    const carouselId = this.dataset.carousel;
+    const targetCarousel = document.getElementById(carouselId);
+
+    // すべてのカルーセルを非表示
+    swiperContainers.forEach(container => {
+      container.style.display = 'none';
+    });
+
+    // クリックされたカルーセルを表示
+    if (targetCarousel) {
+      targetCarousel.style.display = 'block';
+
+      // カルーセルを再初期化 (必要に応じて)
+      const existingSwiper = targetCarousel.querySelector('.swiper').swiper;
+      if (existingSwiper) {
+        existingSwiper.update();
+      } else {
+        currentSwiper = new Swiper(targetCarousel.querySelector('.swiper'), {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 30,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+        });
+      }
     }
   });
 });
