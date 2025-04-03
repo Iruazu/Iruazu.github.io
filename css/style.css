@@ -41,7 +41,6 @@ h2 {
   background-color: #0056b3;
 }
 
-/*フェードイ*/
 .fade-in {
   opacity: 0; /* 初期状態を透明にする */
   transition: opacity 0.8s ease-in-out; /* 透明度変化のアニメーション */
@@ -50,6 +49,44 @@ h2 {
 .fade-in.loaded {
   opacity: 1; /* JavaScriptで 'loaded' クラスが付与されたら表示 */
 }
+
+/* ヘッダー内の文字要素の初期状態 (透明) */
+header .site-title a,
+header .global-nav a {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* フェードインのアニメーション */
+}
+
+/* ヘッダーがロードされた後の文字要素 */
+header.loaded .site-title a,
+header.loaded .global-nav a {
+  opacity: 1;
+}
+
+/* ヒーローコンテンツ内の文字要素の初期状態 (透明) */
+.hero-content h1,
+.hero-content p,
+.hero-content .button {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out; /* フェードインのアニメーション */
+}
+
+/* ヒーローイメージがロードされた後の文字要素 */
+.hero-image.loaded .hero-content h1 {
+  opacity: 1;
+  transition-delay: 0.4s; /* 少し遅れてフェードイン */
+}
+
+.hero-image.loaded .hero-content p {
+  opacity: 1;
+  transition-delay: 0.8s; /* さらに遅れてフェードイン */
+}
+
+.hero-image.loaded .hero-content .button {
+  opacity: 1;
+  transition-delay: 1.0s; /* 一番遅れてフェードイン */
+}
+
 
 /* ヘッダー */
 header {

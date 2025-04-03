@@ -111,16 +111,50 @@ navLinks.forEach(link => {
   });
 });
 
-//スクロールナビゲーション
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('header');
   const heroSection = document.getElementById('hero');
-  const heroHeight = heroSection.offsetHeight; // ヒーローイメージの高さを取得
+  const aboutSection = document.getElementById('about');
+  const heroHeight = heroSection ? heroSection.offsetHeight : 0;
 
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > heroHeight) {
-      header.classList.remove('header-transparent');
+  // ヘッダーに loaded クラスを付与して文字をフェードインさせる (ページロード時)
+  header.classList.add('loaded');
+
+  // ヒーローイメージにも loaded クラスを付与して文字をフェードインさせる (ページロード時)
+  if (heroSection) {
+    heroSection.classList.add('loaded');
+  }
+
+  // Aboutセクションのフェードイン処理 (初期表示時とスクロール時)
+  const handleAboutFadeIn = () => {
+    if (aboutSection && !aboutSection.classList.contains('loaded')) {
+      const aboutTop = aboutSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      // Aboutセクションが画面の下端に近づいたら loaded クラスを追加
+      if (aboutTop < windowHeight * 0.8) {
+        aboutSection.classList.add('loaded');
+        window.removeEventListener('scroll', handleAboutFadeIn); // 一度表示したらイベントリスナーを削除
+      }
+    }
+  };
+
+  // ページ読み込み時に初期表示されていれば loaded クラスを付与
+  if (aboutSection) {
+    const aboutTopOnLoad = aboutSection.getBoundingClientRect().top;
+    const windowHeightOnLoad = window.innerHeight;
+    if (aboutTopOnLoad < windowHeightOnLoad) {
+      aboutSection.classList.add('loaded');
     } else {
+      window.addEventListener('scroll', handleAboutFadeIn); // 初期表示されていなければスクロール時に処理
+    }
+  }
+
+  // スクロールによるヘッダーの背景色変更
+  window.addEventListener('scroll', function() {
+    if (heroSection && window.scrollY > heroHeight) {
+      header.classList.remove('header-transparent');
+    } else if (heroSection) {
       header.classList.add('header-transparent');
     }
   });
