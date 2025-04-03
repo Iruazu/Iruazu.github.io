@@ -406,23 +406,6 @@ header .container {
   pointer-events: auto;
 }
 
-.button-link {
-  display: inline-block; /* インライン要素をブロック要素のように扱う */
-  padding: 10px 20px; /* ボタンの内側の余白 */
-  background-color: #f0f0f0; /* ボタンの背景色 */
-  color: #333; /* ボタンの文字色 */
-  text-decoration: none; /* 下線を消す */
-  border-radius: 5px; /* 角を丸くする */
-  border: 1px solid #ccc; /* 枠線 */
-  cursor: pointer; /* カーソルを指の形にする */
-  font-size: 1rem; /* フォントサイズ */
-  margin-top: 10px; /* 上の要素との間隔 */
-}
-
-.button-link:hover {
-  background-color: #e0e0e0; /* ホバー時の背景色 */
-}
-
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .works-wrapper {
