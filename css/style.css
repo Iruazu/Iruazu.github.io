@@ -240,41 +240,62 @@ header .container {
   margin-bottom: 30px;
 }
 
-/* Aboutセクション (アコーディオンメニュー) */
-.accordion-item {
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  overflow: hidden;
+/* Aboutセクション */
+#about {
+  padding: 80px 0;
+  background-color: #222; /* 黒に近い濃いグレー */
+  color: #f8f8f8; /* 白に近い文字色 */
 }
 
-.accordion-header {
-  background-color: #eee;
-  padding: 15px;
-  cursor: pointer;
-  position: relative;
+#about h2,
+#about h3,
+#about p {
+  color: #f8f8f8; /* 見出しや段落も白に近い色に */
+}
+
+#about .container {
+  max-width: 1080px;
+}
+
+.about-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
 }
 
-.accordion-header::after {
-  content: '+';
-  font-size: 1.5rem;
+.profile-left {
+  flex: 1;
 }
 
-.accordion-item.open .accordion-header::after {
-  content: '-';
+.image-right {
+  flex: 1;
+  text-align: right;
 }
 
-.accordion-content {
-  padding: 15px;
-  background-color: #fff;
-  display: none; /* 初期状態では非表示 */
+.image-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* 背景が暗いので影を少し濃く */
 }
 
-.accordion-item.open .accordion-content {
-  display: block;
+/* レスポンシブ対応 (768px以下) */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .image-right {
+    text-align: center;
+  }
+
+  .image-right img {
+    max-width: 80%;
+  }
 }
 
 /* Worksセクション (カルーセル) */
@@ -459,4 +480,44 @@ html {
 /* セクション間の余白調整 */
 .section:last-child {
   margin-bottom: 0;
+}
+
+/* アコーディオンメニューのスタイル */
+.accordion-item {
+  border: 1px solid #444;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background-color: #333;
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f8f8f8;
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: #f8f8f8;
+}
+
+.accordion-item.open .accordion-header::after {
+  content: '-';
+}
+
+.accordion-content {
+  padding: 15px;
+  background-color: #444;
+  color: #f8f8f8;
+  display: none; /* 初期状態では非表示 */
+}
+
+.accordion-item.open .accordion-content {
+  display: block;
 }
