@@ -215,6 +215,34 @@ header .container {
   }
 }
 
+@media (max-width: 480px) {
+  .hamburger-menu {
+    width: 25px;
+    height: 15px;
+  }
+
+  .global-nav.open {
+    top: 55px; /* ヘッダーの高さに合わせて微調整 */
+  }
+
+  .global-nav.open li {
+    margin: 12px 0;
+    font-size: 0.9rem; /* 文字サイズを少し小さく */
+  }
+}
+
+/* スマートフォンなどでヘッダーが白くなった時のハンバーガーメニュー */
+@media (max-width: 768px) {
+  header:not(.header-transparent) .hamburger-menu span {
+    background-color: #333 !important; /* 黒色を強制的に適用 */
+  }
+
+  /* ヘッダーが透明な初期状態のハンバーガーメニュー (念のため再記述) */
+  header.header-transparent .hamburger-menu span {
+    background-color: #fff;
+  }
+}
+
 /* ヒーローイメージ */
 .hero-image {
   background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
