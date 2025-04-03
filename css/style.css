@@ -412,6 +412,16 @@ header .container {
     flex-direction: column; /* 縦並びにする */
   }
 
+  /* レスポンシブ対応 */
+@media (max-width: 768px) {
+  /* ... その他のレスポンシブな CSS ... */
+
+  #works {
+    pointer-events: auto; /* スマートフォンサイズではイベントを受け付ける */
+  }
+}
+
+
   .works-list {
     flex-basis: auto;
     width: 100%;
