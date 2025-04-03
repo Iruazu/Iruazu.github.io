@@ -404,6 +404,98 @@ header .container {
   }
 }
 
+/* web&appセクション */
+#web-app {
+  padding: 80px 0;
+  background-color: #292929; /* 薄いグレー */
+  color: #f8f8f8; /* 文字色を白に */
+}
+
+#web-app .container {
+  max-width: 600px; /* 必要に応じて調整 */
+}
+
+.webapp-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 縦方向中央揃え */
+  gap: 40px; /* 説明と画像の間隔 */
+}
+
+.webapp-description {
+  flex: 1;
+}
+
+.webapp-images {
+  flex: 1;
+  display: flex;
+  gap: 20px; /* 画像間の間隔 */
+}
+
+.webapp-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px; /* 必要に応じて */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 必要に応じて */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .webapp-wrapper {
+    flex-direction: column; /* 縦並びにする */
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .webapp-images {
+    flex-direction: column; /* 画像も縦並びにする */
+    gap: 15px;
+  }
+}
+
+/* 3dmodelingセクション */
+#3dmodeling {
+  padding: 80px 0;
+  background-color: #292929; /* 薄いグレー */
+  color: #f8f8f8; /* 文字色を白に */
+}
+
+#3dmodeling .container {
+  max-width: 960px; /* 必要に応じて調整 */
+}
+
+.modeling-wrapper {
+  display: flex;
+  flex-direction: column; /* デフォルトは縦並び */
+  gap: 30px;
+}
+
+.modeling-description {
+  margin-bottom: 20px;
+}
+
+.modeling-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* 横並びの中央寄せ */
+}
+
+.modeling-images img {
+  max-width: 45%; /* 横並びの場合の画像の最大幅 */
+  height: auto;
+  border-radius: 5px; /* 必要に応じて */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 必要に応じて */
+  margin-bottom: 10px; /* 画像下の余白 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .modeling-images img {
+    max-width: 80%; /* スマートフォンでは幅を広げる */
+  }
+}
+
 /* Blogセクション */
 .blog-links {
   list-style: none;
