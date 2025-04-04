@@ -248,7 +248,7 @@ header .container {
 /* Base hero image styles (keeping your original styles) */
 .hero-image {
   background-image: url("img/castle10.jpg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-attachment: fixed; /* Parallax effect for desktop */
   color: #fff;
@@ -273,7 +273,7 @@ header .container {
   .hero-image {
     padding: 150px 0; /* Further reduce padding on very small screens */
     background-position: center center; /* Ensure the image is centered */
-    background-size: cover; /* Maintain cover but might need adjusting */
+    background-size: contain; /* Maintain cover but might need adjusting */
   }
   
   .hero-content h1 {
@@ -304,7 +304,7 @@ header .container {
 /* ヒーローイメージ */
 .hero-image {
   background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   color: #fff;
   text-align: center;
