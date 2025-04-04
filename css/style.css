@@ -689,19 +689,73 @@ html {
 }
 
 
-/* ヒーローイメージ */
+/* ヒーローイメージのレスポンシブ対応 */
+
+/* 基本のヒーローイメージスタイル */
 .hero-image {
-  background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
-  background-size: contain; /* ← ここを修正 */
-  background-position: center center;
+  background-image: url("img/castle10.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* パララックス効果 */
   color: #fff;
   text-align: center;
   padding: 300px 0;
 }
 
+/* タブレット向け調整 */
 @media (max-width: 768px) {
   .hero-image {
-    background-size: contain; /* ← ここを修正 */
-    height: 400px; /* モバイルでの高さを調整 */
+    padding: 200px 0;
+    background-attachment: scroll; /* モバイルではパララックスを無効化 */
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* スマートフォン向け調整 */
+@media (max-width: 480px) {
+  .hero-image {
+    padding: 150px 0;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content .button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+/* iPhone SE などの小さい画面向け特別調整 */
+@media (max-width: 375px) {
+  .hero-image {
+    padding: 120px 0;
+    /* background-position調整で特定の部分が見えるように */
+    background-position: center 25%;
+  }
+  
+  .hero-content {
+    padding: 0 15px;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 }
