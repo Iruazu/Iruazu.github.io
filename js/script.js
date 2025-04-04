@@ -178,13 +178,3 @@ worksListItems.forEach(item => {
     }
   });
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-  const cocricotButton = document.getElementById('cocricot-button');
-  if (cocricotButton) {
-      cocricotButton.addEventListener('click', function() {
-          window.open('https://cocricot.pics', '_blank'); // 新しいタブで開く
-          // または、同じタブで開く場合は window.location.href = 'https://cocricot.pics';
-      });
-  }
-});
