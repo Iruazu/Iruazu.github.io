@@ -243,64 +243,6 @@ header .container {
   }
 }
 
-/* Improved responsive hero image styling */
-
-/* Base hero image styles (keeping your original styles) */
-.hero-image {
-  background-image: url("img/castle10.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Parallax effect for desktop */
-  color: #fff;
-  text-align: center;
-  padding: 300px 0;
-}
-
-/* Media query for smaller screens (tablets) */
-@media (max-width: 768px) {
-  .hero-image {
-    padding: 200px 0; /* Reduce padding on medium-sized screens */
-    background-attachment: scroll; /* Disable parallax for better mobile experience */
-  }
-  
-  .hero-content h1 {
-    font-size: 2.5rem; /* Slightly smaller heading */
-  }
-}
-
-/* Media query for very small screens (iPhone SE, etc.) */
-@media (max-width: 375px) {
-  .hero-image {
-    padding: 150px 0; /* Further reduce padding on very small screens */
-    background-position: center center; /* Ensure the image is centered */
-    background-size: cover; /* Maintain cover but might need adjusting */
-  }
-  
-  .hero-content h1 {
-    font-size: 2rem; /* Even smaller heading for tiny screens */
-  }
-  
-  .hero-content p {
-    font-size: 1rem; /* Smaller paragraph text */
-    padding: 0 15px; /* Add some side padding for readability */
-  }
-  
-  .hero-content .button {
-    font-size: 0.9rem; /* Slightly smaller button text */
-    padding: 8px 16px; /* Smaller button size */
-  }
-}
-
-/* Optional: If the image still doesn't look right on iPhone SE, you could add a specific rule */
-@media (max-width: 320px) {
-  .hero-image {
-    /* Consider using a more zoomed-out version of the image for very small screens */
-    /* Or adjust background-size property */
-    background-size: 180% auto; /* This forces the image to be wider than the screen */
-    background-position: center top; /* Focus on the top center of the image */
-  }
-}
-
 /* ヒーローイメージ */
 .hero-image {
   background-image: url("img/castle10.jpg"); /* ヒーローイメージのURL */
